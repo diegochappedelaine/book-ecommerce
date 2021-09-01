@@ -1,6 +1,3 @@
-import { useFetch } from "hooks";
-import { Book } from "global.d";
-
 import {
   NavBar,
   BookCard,
@@ -10,6 +7,9 @@ import {
   ShoppingCard,
 } from "components";
 import { Container, useDisclosure } from "@chakra-ui/react";
+
+import { useFetch } from "hooks";
+import { Book } from "global.d";
 
 const HomePage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

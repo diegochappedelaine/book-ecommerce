@@ -1,3 +1,5 @@
+import { useCardContext } from "provider/CardProvider";
+
 import {
   Flex,
   Box,
@@ -12,7 +14,6 @@ import {
 import { RiShoppingCartLine } from "react-icons/ri";
 
 import { Book } from "global.d";
-import { useCardContext } from "provider/CardProvider";
 
 interface BookCardProps {
   book: Book;

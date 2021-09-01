@@ -6,6 +6,10 @@ export interface Book {
   synopsis: string[];
 }
 
+export interface BookInCard extends Book {
+  quantity: number;
+}
+
 export enum offersTypeEnum {
   percent = "percentage",
   minus = "minus",

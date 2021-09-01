@@ -2,7 +2,7 @@ import { Container, Heading, Stack, Text } from "@chakra-ui/react";
 
 const HeadingSection = () => {
   return (
-    <Container maxW={"5xl"}>
+    <Container as="section" maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}

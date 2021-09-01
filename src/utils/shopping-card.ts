@@ -1,7 +1,7 @@
-import { Book } from "global.d";
+import { Book, BookInCard } from "global.d";
 
 export const mergeBooksDuplicateAndAddQuantity = (array: Book[]) => {
-  const newArray: (Book & { quantity: number })[] = [];
+  const newArray: BookInCard[] = [];
 
   array.forEach((item) => {
     const bookIndex = newArray.findIndex(

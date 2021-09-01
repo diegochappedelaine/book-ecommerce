@@ -17,6 +17,7 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = ({ displayCard }) => {
   return (
     <Box
+      as="header"
       pos="fixed"
       maxW={"container.lg"}
       w="full"

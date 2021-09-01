@@ -1,7 +1,7 @@
 import { useFetch } from "hooks";
 import { Book } from "global.d";
 
-import { NavBar, BookCard, BookListContainer } from "components";
+import { NavBar, BookCard, BookListContainer, Heading } from "components";
 import { Container } from "@chakra-ui/react";
 
 const HomePage = () => {
@@ -10,6 +10,7 @@ const HomePage = () => {
   return (
     <Container maxW="container.lg">
       <NavBar />
+      <Heading />
       <BookListContainer>
         {data?.map((book, index) => (
           <BookCard book={book} key={index} />

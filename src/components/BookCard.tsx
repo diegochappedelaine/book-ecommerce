@@ -13,7 +13,11 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { Book } from "global.d";
 import { useCardContext } from "provider/CardProvider";
 
-const ProductAddToCart: React.FC<{ book: Book }> = ({ book }) => {
+interface BookCardProps {
+  book: Book;
+}
+
+const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const { addBookToCard } = useCardContext();
 
   return (
@@ -68,4 +72,4 @@ const ProductAddToCart: React.FC<{ book: Book }> = ({ book }) => {
   );
 };
 
-export default ProductAddToCart;
+export default BookCard;

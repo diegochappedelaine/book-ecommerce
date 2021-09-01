@@ -17,4 +17,4 @@ $> yarn start
 
 ## Deployment
 
-https://hypecode-todolist.netlify.app/
+https://book-ecommerce-xebia.netlify.app/

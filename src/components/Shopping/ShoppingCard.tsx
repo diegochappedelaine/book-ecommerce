@@ -12,6 +12,7 @@ import {
   DrawerCloseButton,
   Button,
   UnorderedList,
+  Text,
 } from "@chakra-ui/react";
 import ShoppingCardElementRow from "./ShoppingCardElementRow";
 import ShoppingCardPriceSection from "./ShoppingCardPriceSection";
@@ -65,16 +66,30 @@ const ShoppingCard: React.FC<ShoppingCardProps> = ({ isOpen, onClose }) => {
         <DrawerHeader>Shopping bag</DrawerHeader>
 
         <DrawerBody>
-          <UnorderedList styleType="none" m={0}>
-            {booksInCard?.map((book, index) => (
-              <ShoppingCardElementRow book={book} key={index} />
-            ))}
-          </UnorderedList>
-          {shoppingCard.length > 0 && (
-            <ShoppingCardPriceSection
-              discountedOffer={discountedOffer}
-              totalPrice={totalPrice}
-            />
+          {!booksInCard.length && (
+            <>
+              <Text>
+                Looks like your shopping bag is empty ! <br />
+                <br />
+                Start browsing now to acquire thoses mysterious books
+              </Text>
+              <Button onClick={onClose} mt={8}>
+                Go back to website !
+              </Button>
+            </>
+          )}
+          {!!booksInCard.length && (
+            <>
+              <UnorderedList styleType="none" m={0}>
+                {booksInCard.map((book, index) => (
+                  <ShoppingCardElementRow book={book} key={index} />
+                ))}
+              </UnorderedList>
+              <ShoppingCardPriceSection
+                discountedOffer={discountedOffer}
+                totalPrice={totalPrice}
+              />
+            </>
           )}
         </DrawerBody>
 
@@ -82,7 +97,7 @@ const ShoppingCard: React.FC<ShoppingCardProps> = ({ isOpen, onClose }) => {
           <Button variant="outline" mr={3} onClick={onClose}>
             Cancel
           </Button>
-          <Button w="full" colorScheme="blue">
+          <Button disabled={!booksInCard.length} w="full" colorScheme="blue">
             Checkout
           </Button>
         </DrawerFooter>

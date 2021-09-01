@@ -8,7 +8,11 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-const NavBar = () => {
+interface NavBarProps {
+  displayCard: () => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ displayCard }) => {
   return (
     <Box>
       <Flex
@@ -48,6 +52,7 @@ const NavBar = () => {
             _hover={{
               bg: "red.300",
             }}
+            onClick={displayCard}
           >
             Display Card
           </Button>

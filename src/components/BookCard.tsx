@@ -7,6 +7,7 @@ import {
   Icon,
   Tooltip,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import { RiShoppingCartLine } from "react-icons/ri";
 
@@ -19,6 +20,7 @@ interface BookCardProps {
 
 const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const { addBookToCard } = useCardContext();
+  const toast = useToast();
 
   return (
     <Box
@@ -54,7 +56,18 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
             color={"gray.800"}
             fontSize={"1.2em"}
           >
-            <Button colorScheme="blue" onClick={() => addBookToCard(book)}>
+            <Button
+              colorScheme="blue"
+              onClick={() => {
+                addBookToCard(book);
+                toast({
+                  title: `Added to card`,
+                  position: "top-right",
+                  isClosable: true,
+                  duration: 1500,
+                });
+              }}
+            >
               <Icon as={RiShoppingCartLine} h={7} w={7} alignSelf={"center"} />
             </Button>
           </Tooltip>

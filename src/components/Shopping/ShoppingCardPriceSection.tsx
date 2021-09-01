@@ -1,4 +1,4 @@
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, Divider } from "@chakra-ui/react";
 
 import { DiscountedOffer } from "global.d";
 
@@ -27,6 +27,7 @@ const ShoppingCardPriceSection: React.FC<ShoppingCardPriceSectionProps> = ({
           </Text>
         </Flex>
       )}
+      <Divider mb={4} />
       <Flex mb={4} justifyContent="space-between">
         <Text>Total</Text>
         <Text>€ {discountedOffer?.discountedPrice || totalPrice}</Text>

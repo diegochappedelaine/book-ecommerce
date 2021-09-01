@@ -1,6 +1,12 @@
 import { useCardContext } from "provider/CardProvider";
 
-import { Button, ListItem, Text, Tag } from "@chakra-ui/react";
+import {
+  Button,
+  ListItem,
+  Text,
+  Tag,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 import { BookInCard, Book } from "global.d";
 
@@ -15,7 +21,7 @@ const ShoppingCardElementRow: React.FC<ShoppingCardElementRowProps> = ({
 
   return (
     <ListItem
-      bg={"gray.200"}
+      bg={useColorModeValue("gray.200", "gray.800")}
       p={2}
       borderRadius={10}
       display="flex"
@@ -56,7 +62,9 @@ const ShoppingCardElementRow: React.FC<ShoppingCardElementRowProps> = ({
       >
         +
       </Button>
-      <Text whiteSpace="nowrap">€ {book.price * book.quantity}</Text>
+      <Text w={14} textAlign="end" whiteSpace="nowrap">
+        € {book.price * book.quantity}
+      </Text>
     </ListItem>
   );
 };

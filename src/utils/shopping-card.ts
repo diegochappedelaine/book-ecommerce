@@ -15,3 +15,8 @@ export const mergeBooksDuplicateAndAddQuantity = (array: Book[]) => {
 
   return newArray;
 };
+
+export const returnPriceTotal = (card: Book[]) =>
+  card.reduce(function (acc, book) {
+    return acc + book.price;
+  }, 0);

@@ -1,6 +1,6 @@
 import { Container, Heading, Stack, Text } from "@chakra-ui/react";
 
-export default function CallToActionWithIllustration() {
+const HeadingSection = () => {
   return (
     <Container maxW={"5xl"}>
       <Stack
@@ -33,4 +33,6 @@ export default function CallToActionWithIllustration() {
       </Stack>
     </Container>
   );
-}
+};
+
+export default HeadingSection;

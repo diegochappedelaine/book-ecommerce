@@ -6,7 +6,9 @@ import {
   Stack,
   useColorModeValue,
   useBreakpointValue,
+  Icon,
 } from "@chakra-ui/react";
+import { BiShoppingBag } from "react-icons/bi";
 
 interface NavBarProps {
   displayCard: () => void;
@@ -14,7 +16,13 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ displayCard }) => {
   return (
-    <Box>
+    <Box
+      pos="fixed"
+      maxW={"container.lg"}
+      w="full"
+      zIndex={2}
+      background={"whiteAlpha.100"}
+    >
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -54,7 +62,7 @@ const NavBar: React.FC<NavBarProps> = ({ displayCard }) => {
             }}
             onClick={displayCard}
           >
-            Display Card
+            <Icon as={BiShoppingBag} mr={2} /> Card
           </Button>
         </Stack>
       </Flex>

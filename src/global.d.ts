@@ -5,3 +5,20 @@ export interface Book {
   cover: string;
   synopsis: string[];
 }
+
+export enum offersTypeEnum {
+  percent = "percentage",
+  minus = "minus",
+  slice = "slice",
+}
+
+export interface Offer {
+  type: offersTypeEnum;
+  value: number;
+  sliceValue?: number;
+}
+
+export interface DiscountedOffer extends Offer {
+  discountedPrice: number;
+  price: number;
+}

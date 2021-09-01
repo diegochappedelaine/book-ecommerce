@@ -1,3 +1,4 @@
 import useFetch from "./useFetch";
+import useFetchLazy from "./useFetchLazy";
 
-export { useFetch };
+export { useFetch, useFetchLazy };

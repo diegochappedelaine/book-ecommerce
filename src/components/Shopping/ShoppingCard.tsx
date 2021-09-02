@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from "react";
-import { useFetchLazy } from "hooks";
+import { useFetchLazy, useDebounce } from "hooks";
 import { useCardContext } from "provider/CardProvider";
 
 import {
@@ -33,7 +33,7 @@ interface ShoppingCardProps {
 const ShoppingCard: React.FC<ShoppingCardProps> = ({ isOpen, onClose }) => {
   const { shoppingCard } = useCardContext();
 
-  console.log(shoppingCard);
+  const debouncedShoppingCard = useDebounce(shoppingCard, 500);
 
   const apiUrl = `${process.env.REACT_APP_API_URL}/books/${shoppingCard
     .map((book) => book.isbn)
@@ -56,7 +56,7 @@ const ShoppingCard: React.FC<ShoppingCardProps> = ({ isOpen, onClose }) => {
       fetchData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
+  }, [isOpen, debouncedShoppingCard]);
 
   const discountedOffer = data && getBestDiscount(data.offers, totalPrice);
 

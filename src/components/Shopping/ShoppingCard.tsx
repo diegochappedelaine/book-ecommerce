@@ -33,6 +33,8 @@ interface ShoppingCardProps {
 const ShoppingCard: React.FC<ShoppingCardProps> = ({ isOpen, onClose }) => {
   const { shoppingCard } = useCardContext();
 
+  console.log(shoppingCard);
+
   const apiUrl = `${process.env.REACT_APP_API_URL}/books/${shoppingCard
     .map((book) => book.isbn)
     .join(",")}/commercialOffers`;
@@ -50,7 +52,7 @@ const ShoppingCard: React.FC<ShoppingCardProps> = ({ isOpen, onClose }) => {
   );
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !!shoppingCard.length) {
       fetchData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

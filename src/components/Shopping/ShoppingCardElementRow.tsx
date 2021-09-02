@@ -14,6 +14,18 @@ interface ShoppingCardElementRowProps {
   book: BookInCard;
 }
 
+const handleButtonClick = (
+  book: BookInCard,
+  handleBook: (book: Book) => void
+): void => {
+  const bookToUpdate = {
+    ...book,
+  } as Book & { quantity?: number };
+  delete bookToUpdate.quantity;
+
+  return handleBook(bookToUpdate);
+};
+
 const ShoppingCardElementRow: React.FC<ShoppingCardElementRowProps> = ({
   book,
 }) => {
@@ -40,24 +52,14 @@ const ShoppingCardElementRow: React.FC<ShoppingCardElementRowProps> = ({
       <Button
         ml="auto"
         size="sm"
-        onClick={() => {
-          const bookToRemove: Book & { quantity?: number } = {
-            ...book,
-          };
-          delete bookToRemove.quantity;
-          removeBookFromCard(bookToRemove);
-        }}
+        onClick={() => handleButtonClick(book, removeBookFromCard)}
         mr={2}
       >
         -
       </Button>
       <Button
         size="sm"
-        onClick={() => {
-          const bookToAdd: Book & { quantity?: number } = { ...book };
-          delete bookToAdd.quantity;
-          addBookToCard(bookToAdd);
-        }}
+        onClick={() => handleButtonClick(book, addBookToCard)}
         mr={2}
       >
         +
